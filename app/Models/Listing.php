@@ -27,4 +27,9 @@ class Listing extends Model
         'ignore' => 'boolean',
         'media' => 'array',
     ];
+
+    public function scopeAddress($query, string $address)
+    {
+        return $query->where('address', $address);
+    }
 }

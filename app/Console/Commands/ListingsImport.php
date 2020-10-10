@@ -2,10 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Listing;
 use App\Realtors\Corcoran\CorcoranClient;
 use Illuminate\Console\Command;
 
-class ImportListings extends Command
+class ListingsImport extends Command
 {
     /**
      * The name and signature of the console command.
@@ -33,6 +34,14 @@ class ImportListings extends Command
         $items = $corcoran->listings();
 
         $items->map(fn($item, $key) => $corcoran->dataToModel($item));
+
+        $items->each(static function ($item) {
+            if (Listing::address($item->address)->first()) {
+                return;
+            }
+
+            $item->save();
+        });
 
         return 0;
     }
