@@ -63,8 +63,10 @@ class CorcoranClient
         $m = new Listing;
 
         $m->address = sprintf('%s, %s, Brooklyn, NY %s', $data['address1'], $data['address2'], $data['zipCode']);
+        $m->source = 'corcoran';
         $m->price = $data['price'];
-        $m->media = collect($data['media'])->pluck('url')->all();
+        $m->media = collect($data['media'] ?? [])->pluck('url')->all();
+        $m->sink = $data;
 
         return $m;
     }

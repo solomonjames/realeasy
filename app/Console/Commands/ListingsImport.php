@@ -33,9 +33,9 @@ class ListingsImport extends Command
 
         $items = $corcoran->listings();
 
-        $items->map(fn($item, $key) => $corcoran->dataToModel($item));
+        $newItems = $items->map(fn($item, $key) => $corcoran->dataToModel($item));
 
-        $items->each(static function ($item) {
+        $newItems->each(static function ($item) {
             if (Listing::address($item->address)->first()) {
                 return;
             }

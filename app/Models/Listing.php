@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * Class Listing
  *
  * @property string $address
  * @property int    $price
+ * @property string $source
  * @property array  $media
+ * @property array  $sink
  * @property bool   $ignore
  */
 class Listing extends Model
@@ -26,10 +29,16 @@ class Listing extends Model
         'price' => 'integer',
         'ignore' => 'boolean',
         'media' => 'array',
+        'sink' => 'array',
     ];
+
+    public function setAddressAttribute(string $value)
+    {
+        $this->attributes['address'] = Str::lower($value);
+    }
 
     public function scopeAddress($query, string $address)
     {
-        return $query->where('address', $address);
+        return $query->where('address', Str::lower($address));
     }
 }

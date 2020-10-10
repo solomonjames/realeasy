@@ -17,8 +17,10 @@ class CreateListingsTable extends Migration
             $table->id();
             $table->string('address')->unique();
             $table->integer('price');
+            $table->string('source');
             $table->boolean('ignore')->default(false);
             $table->json('media');
+            $table->json('sink');
             $table->timestamps();
         });
     }
