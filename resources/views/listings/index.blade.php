@@ -18,7 +18,7 @@
         </div>
         <div class="top-properties-carousel owl-carousel">
         @foreach($listings as $listing)
-        <div class="single-top-properties">
+        <div class="single-top-properties" id="listing-{{ $listing->id }}">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="stp-pic">
@@ -38,6 +38,8 @@
                         @if($listing->source === 'corcoran')
                         <p>{!! $listing->sink['highlightedText'] !!}</p>
                         @endif
+
+                        <button type="button" class="btn btn-secondary ignore-button">Ignore</button>
                     </div>
                 </div>
             </div>
