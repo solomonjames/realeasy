@@ -11,7 +11,7 @@
     </thead>
     <tbody>
     @foreach($listings as $listing)
-        <tr{{ $loop->odd ? 'class="bg-gray-100"' : '' }}>
+        <tr>
             <td>{{ $listing->address }}</td>
             <td>{{ $listing->price }}</td>
             <td></td>
