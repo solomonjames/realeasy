@@ -3,6 +3,7 @@
 @section('content')
 <div class="top-properties-section spad">
     <div class="container">
+        <div class="top-properties-carousel owl-carousel">
         @foreach($listings as $listing)
         <div class="single-top-properties">
             <div class="row">
@@ -44,6 +45,7 @@
             </div>
         </div>
         @endforeach
+        </div>
     </div>
 </div>
 @endsection
