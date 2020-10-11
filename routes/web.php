@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/listings', Controllers\ListingsController::class.'@index');
+Route::get('/listings', Controllers\ListingController::class.'@index');
+Route::patch('/listing/{id}', Controllers\ListingController::class.'@update');
