@@ -3,6 +3,19 @@
 @section('content')
 <div class="top-properties-section spad">
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="form-inline">
+                    <label class="mr-sm-2" for="selectOrderBy">Order by</label>
+                    <select id="selectOrderBy" name="orderBy">
+                        <option value="price">Price</option>
+                        <option value="created_at">Date Created</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </form>
+            </div>
+        </div>
         <div class="top-properties-carousel owl-carousel">
         @foreach($listings as $listing)
         <div class="single-top-properties">
@@ -25,25 +38,6 @@
                         @if($listing->source === 'corcoran')
                         <p>{!! $listing->sink['highlightedText'] !!}</p>
                         @endif
-
-                        <ul class="room-features">
-{{--                            <li>--}}
-{{--                                <i class="fa fa-arrows"></i>--}}
-{{--                                <p>5201 sqft</p>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <i class="fa fa-bed"></i>--}}
-{{--                                <p></p>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <i class="fa fa-bath"></i>--}}
-{{--                                <p></p>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <i class="fa fa-car"></i>--}}
-{{--                                <p>1 Garage</p>--}}
-{{--                            </li>--}}
-                        </ul>
                     </div>
                 </div>
             </div>
