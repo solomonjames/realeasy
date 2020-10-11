@@ -28,8 +28,8 @@ class Listing extends Model
     protected $casts = [
         'price' => 'integer',
         'ignore' => 'boolean',
-        'media' => 'array',
-        'sink' => 'array',
+        'media' => 'collection',
+        'sink' => 'collection',
     ];
 
     public function setAddressAttribute(string $value)
