@@ -1,5 +1,5 @@
 require('./bootstrap');
 
-const ignoreButtons = document.getElementsByClassName('ignore-button');
+const ignoreButtons = $('.ignore-button');
 
-ignoreButtons.addEventListener('click', () => console.log('I WAS CLICKED'));
+ignoreButtons.click(() => console.log('I DID IT'));
