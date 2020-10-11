@@ -22,7 +22,7 @@
                         </div>
                         <div class="properties-location"><i class="icon_pin"></i> {{ $listing->address }}</div>
 
-                        @if($listing->type === 'corcoran')
+                        @if($listing->source === 'corcoran')
                         <p>{!! $listing->sink['highlightedText'] !!}</p>
                         @endif
 
