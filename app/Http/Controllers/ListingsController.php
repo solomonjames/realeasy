@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ListingIndex;
 use App\Models\Listing;
-use Illuminate\Http\Request;
 
 class ListingsController extends Controller
 {
-    public function index(Request $request)
+    public function index(ListingIndex $request)
     {
-        $listings = Listing::withoutIgnored()->orderBy('created_at', 'DESC')->get();
+        $filters = $request->validated();
+        $orderBy = $filters['orderBy'] ?? 'price';
 
-        return view('listings.index', compact('listings'));
+        $listings = Listing::withoutIgnored()->orderBy($orderBy, 'DESC')->get();
+
+        return view('listings.index', compact('listings', 'filters', 'orderBy'));
     }
 }

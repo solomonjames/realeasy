@@ -8,8 +8,8 @@
                 <form class="form-inline">
                     <label class="mr-sm-2" for="selectOrderBy">Order by</label>
                     <select id="selectOrderBy" name="orderBy">
-                        <option value="price">Price</option>
-                        <option value="created_at">Date Created</option>
+                        <option value="price" {{ $orderBy === 'price' ? 'selected' : '' }}>Price</option>
+                        <option value="created_at" {{ $orderBy === 'created_at' ? 'selected' : '' }}>Date Created</option>
                     </select>
 
                     <button type="submit" class="btn btn-primary">Apply</button>
