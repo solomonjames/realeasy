@@ -2,4 +2,8 @@ require('./bootstrap');
 
 const ignoreButtons = $('.ignore-button');
 
-ignoreButtons.click(() => console.log('I DID IT'));
+ignoreButtons.click(function (e) {
+    const parent = $(e).parent('.single-top-properties');
+
+    console.log(parent.attr('id'));
+});
