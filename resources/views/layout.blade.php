@@ -10,7 +10,7 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg"
+                <div class="col-lg">
                     @yield('content')
                 </div>
             </div>
