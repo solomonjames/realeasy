@@ -15,7 +15,7 @@
                 <div class="col-lg-6">
                     <div class="stp-text">
                         {{-- <div class="s-text">For Sale</div> --}}
-                        <h2>{{ $listing->address }}</h2>
+                        <h2>{{ $listing->address_street }}</h2>
                         <div class="room-price">
                             <span>Price:</span>
                             <h4>${{ $listing->price }}</h4>

@@ -32,6 +32,20 @@ class Listing extends Model
         'sink' => 'array',
     ];
 
+    public function getAddressAttribute(): string
+    {
+        return (string) Str::of($this->attributes['address'])->title();
+    }
+
+    public function getAddressStreetAttribute(): string
+    {
+        return (string) Str::of($this->attributes['address'])
+            ->before('brooklyn')
+            ->trim()
+            ->beforeLast(',')
+            ->title();
+    }
+
     public function setAddressAttribute(string $value)
     {
         $this->attributes['address'] = Str::lower($value);
