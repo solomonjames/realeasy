@@ -29,7 +29,7 @@ class Listing extends Model
         'price' => 'integer',
         'ignore' => 'boolean',
         'media' => 'collection',
-        'sink' => 'collection',
+        'sink' => 'array',
     ];
 
     public function setAddressAttribute(string $value)
