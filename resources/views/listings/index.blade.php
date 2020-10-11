@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-<table class="table-auto">
-    <thead>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
         <tr>
             <th>Address</th>
             <th>Price</th>
