@@ -22,13 +22,13 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="stp-pic">
-                        <img src="{{ $listing->media->first() }}" alt="" />
+                        <a href="{{ $listing->link }}" target="_blank"><img src="{{ $listing->media->first() }}" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="stp-text">
                         {{-- <div class="s-text">For Sale</div> --}}
-                        <h2><a href="{{ $listing->link }}" target="_blank">{{ $listing->address_street }}</a></h2>
+                        <h2>{{ $listing->address_street }}</h2>
                         <div class="room-price">
                             <span>Price:</span>
                             <h4>${{ $listing->price }}</h4>
