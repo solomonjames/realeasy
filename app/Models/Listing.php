@@ -16,6 +16,9 @@ use Illuminate\Support\Str;
  * @property array  $media
  * @property array  $sink
  * @property bool   $ignore
+ *
+ * @property-read string $address_street
+ * @property-read string $link
  */
 class Listing extends Model
 {
@@ -32,6 +35,17 @@ class Listing extends Model
         'media' => 'collection',
         'sink' => 'array',
     ];
+
+    public function getLinkAttribute(): string
+    {
+        switch ($this->source) {
+            case 'corcoran':
+                return sprintf('https://www.corcoran.com/nyc-real-estate/for-rent/fake/fake/%s', $this->sink['listingId']);
+
+            default:
+                return '';
+        }
+    }
 
     public function getAddressAttribute(): string
     {
