@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -46,12 +47,31 @@ class Listing extends Model
             ->title();
     }
 
-    public function setAddressAttribute(string $value)
+    public function setAddressAttribute(string $value): void
     {
         $this->attributes['address'] = Str::lower($value);
     }
 
-    public function scopeAddress($query, string $address)
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeWithoutIgnored(Builder $query): Builder
+    {
+        return $query->where('ignore', false);
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string                                $address
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAddress(Builder $query, string $address): Builder
     {
         return $query->where('address', Str::lower($address));
     }

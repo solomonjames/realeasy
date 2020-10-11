@@ -9,7 +9,7 @@ class ListingsController extends Controller
 {
     public function index(Request $request)
     {
-        $listings = Listing::all();
+        $listings = Listing::withoutIgnored()->orderBy('created_at', 'DESC')->get();
 
         return view('listings.index', compact('listings'));
     }
