@@ -36,6 +36,7 @@
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['bathrooms'] }}</li>
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['neighborhoodName'] }}</li>
+                <li class="list-group-item"><strong>Listed:</strong> {{ carbon($listing->sink['listedDate'])->fromNow() }}</li>
             </ul>
 
             <div class="card-footer text-muted">Added {{ $listing->created_at->fromNow() }}</div>
