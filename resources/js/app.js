@@ -35,3 +35,13 @@ saveButtons.click(function () {
         parent.remove();
     });
 });
+
+const filtersForm = $('.filters-form');
+
+filtersForm.on('submit', function (e) {
+    e.preventDefault();
+
+    const $this = $(this);
+
+    window.location.search = $this.serialize();
+});
