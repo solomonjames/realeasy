@@ -24,9 +24,13 @@
                 {!! $listing->sink['highlightedText'] !!}
                 @endif
             </p>
+        </div>
 
+        <div class="card-body">
             <a target="_blank" href="https://www.google.com/maps?q={{ $listing->address }}" class="card-link">Google Maps</a>
+        </div>
 
+        <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
