@@ -1,15 +1,17 @@
 @extends('layout')
 
 @section('content')
-<form class="form-inline">
-    <label class="mr-sm-2" for="selectOrderBy">Order by</label>
-    <select id="selectOrderBy" name="orderBy" class="custom-select my-1 mr-sm-2">
-        <option value="price" {{ $orderBy === 'price' ? 'selected' : '' }}>Price</option>
-        <option value="created_at" {{ $orderBy === 'created_at' ? 'selected' : '' }}>Date added</option>
-    </select>
+<div class="col-12">
+    <form class="form-inline">
+        <label class="mr-sm-2" for="selectOrderBy">Order by</label>
+        <select id="selectOrderBy" name="orderBy" class="custom-select my-1 mr-sm-2">
+            <option value="price" {{ $orderBy === 'price' ? 'selected' : '' }}>Price</option>
+            <option value="created_at" {{ $orderBy === 'created_at' ? 'selected' : '' }}>Date added</option>
+        </select>
 
-    <button type="submit" class="btn btn-primary my-1">Apply</button>
-</form>
+        <button type="submit" class="btn btn-primary my-1">Apply</button>
+    </form>
+</div>
 @foreach($listings as $listing)
 <div class="col-md-4" id="listing-{{ $listing->id }}">
     <div class="card mb-4 shadow-sm">
