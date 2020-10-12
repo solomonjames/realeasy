@@ -38,7 +38,9 @@
                 </div>
                 <small class="text-muted">{{ $listing->source }}</small>
             </div>
+        </div>
 
+        <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['bathrooms'] }}</li>
