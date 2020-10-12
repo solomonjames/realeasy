@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
  * @property array          $media
  * @property array          $sink
  * @property bool           $ignore
+ * @property bool           $saved
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
@@ -34,6 +35,7 @@ class Listing extends Model
     protected $casts = [
         'price' => 'integer',
         'ignore' => 'boolean',
+        'saved' => 'boolean',
         'media' => 'collection',
         'sink' => 'array',
     ];
@@ -77,6 +79,17 @@ class Listing extends Model
     public function scopeWithoutIgnored(Builder $query): Builder
     {
         return $query->where('ignore', false);
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeSaved(Builder $query): Builder
+    {
+        return $query->where('saved', true);
     }
 
     /**

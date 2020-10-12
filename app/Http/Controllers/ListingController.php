@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ListingIndex;
 use App\Http\Requests\ListingUpdate;
 use App\Models\Listing;
-use Carbon\Carbon;
 
 class ListingController extends Controller
 {
@@ -13,10 +12,14 @@ class ListingController extends Controller
     {
         $filters = $request->validated();
         $orderBy = $filters['orderBy'] ?? 'price';
+        $saved = $filters['saved'] ?? false;
 
-        $listings = Listing::withoutIgnored()->orderBy($orderBy, 'DESC')->get();
+        $listings = Listing::withoutIgnored()
+            ->where('saved', $saved)
+            ->orderBy($orderBy, 'DESC')
+            ->get();
 
-        return view('listings.index', compact('listings', 'filters', 'orderBy'));
+        return view('listings.index', compact('listings', 'filters', 'orderBy', 'saved'));
     }
 
     public function update(ListingUpdate $request, string $id)

@@ -25,6 +25,7 @@ class ListingUpdate extends FormRequest
     {
         return [
             'ignore' => 'boolean',
+            'saved' => 'boolean',
         ];
     }
 }
