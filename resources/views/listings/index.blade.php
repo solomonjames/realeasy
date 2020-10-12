@@ -18,7 +18,7 @@
         <a href="{{ $listing->link }}" target="_blank"><img class="card-img-top" src="{{ $listing->media->first() }}" /></a>
         <div class="card-body">
             <h5 class="card-title">{{ $listing->address_street }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ $listing->source }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">${{ $listing->price }}</h6>
             <p class="card-text">
                 @if($listing->source === 'corcoran')
                 {!! $listing->sink['highlightedText'] !!}
@@ -26,10 +26,10 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary ignore-button">Ignore</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary save-button">Save</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
                 </div>
-                <small class="text-muted">Price: ${{ $listing->price }}</small>
+                <small class="text-muted">{{ $listing->source }}</small>
             </div>
 
             <ul class="list-group list-group-flush">
