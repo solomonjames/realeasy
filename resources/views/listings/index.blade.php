@@ -31,6 +31,8 @@
                 </div>
                 <small class="text-muted">Price: ${{ $listing->price }}</small>
             </div>
+
+            <p class="card-text"><small class="text-muted">Added {{ now()->diffForHumans($listing->created_at) }}</small></p>
         </div>
     </div>
 </div>

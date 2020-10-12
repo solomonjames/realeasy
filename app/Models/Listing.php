@@ -10,12 +10,14 @@ use Illuminate\Support\Str;
 /**
  * Class Listing
  *
- * @property string $address
- * @property int    $price
- * @property string $source
- * @property array  $media
- * @property array  $sink
- * @property bool   $ignore
+ * @property string         $address
+ * @property int            $price
+ * @property string         $source
+ * @property array          $media
+ * @property array          $sink
+ * @property bool           $ignore
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  *
  * @property-read string $address_street
  * @property-read string $link
