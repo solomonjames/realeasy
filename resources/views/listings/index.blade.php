@@ -32,7 +32,13 @@
                 <small class="text-muted">Price: ${{ $listing->price }}</small>
             </div>
 
-            <p class="card-text"><small class="text-muted">Added {{ now()->diffForHumans($listing->created_at) }}</small></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] }}</li>
+                <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['bathrooms'] }}</li>
+                <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['neighborhoodName'] }}</li>
+            </ul>
+
+            <div class="card-footer text-muted">Added {{ $listing->created_at->fromNow() }}</div>>
         </div>
     </div>
 </div>
