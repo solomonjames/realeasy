@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Listing;
 use App\Realtors\Corcoran\CorcoranClient;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class ListingsImport extends Command
 {
@@ -35,13 +36,17 @@ class ListingsImport extends Command
 
         $newItems = $items->map(fn($item, $key) => $corcoran->dataToModel($item));
 
-        $newItems->each(static function ($item) {
+        $savedItems = 0;
+        $newItems->each(static function ($item) use ($savedItems) {
             if (Listing::address($item->address)->first()) {
                 return;
             }
 
             $item->save();
+            $savedItems++;
         });
+
+        Log::info(sprintf('Import finished with %s new items.', $savedItems));
 
         return 0;
     }
