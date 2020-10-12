@@ -24,7 +24,8 @@ class ListingController extends Controller
         $listing = Listing::findOrFail($id);
         $values = $request->validated();
 
-        $listing->ignore = $values['ignore'];
+        $listing->saved = $values['saved'] ?? $listing->saved;
+        $listing->ignore = $values['ignore'] ?? $listing->ignore;
         $listing->save();
 
         return response('', 200);

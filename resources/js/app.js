@@ -25,13 +25,13 @@ saveButtons.click(function () {
 
     console.log(`saved: ${listingId}`);
 
-    // window.axios.patch(`/listing/${listingId}`, {
-    //     ignore: true,
-    // }).then(function (response) {
-    //     if (response.status !== 200) {
-    //         return alert('Shit, something went wrong');
-    //     }
-    //
-    //     parent.remove();
-    // });
+    window.axios.patch(`/listing/${listingId}`, {
+        saved: true,
+    }).then(function (response) {
+        if (response.status !== 200) {
+            return alert('Shit, something went wrong');
+        }
+
+        parent.remove();
+    });
 });
