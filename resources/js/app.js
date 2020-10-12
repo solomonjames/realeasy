@@ -3,7 +3,7 @@ require('./bootstrap');
 const ignoreButtons = $('.ignore-button');
 
 ignoreButtons.click(function () {
-    const parent = $(this).parents('.single-top-properties');
+    const parent = $(this).parents('.col-md-4');
     const listingId = parent.attr('id').replace('listing-', '');
 
     window.axios.patch(`/listing/${listingId}`, {
