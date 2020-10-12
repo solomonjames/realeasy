@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <title></title>
@@ -15,41 +15,27 @@
 
     <body>
         <!-- Header Section Begin -->
-        <header class="header-section">
-            <div class="top-nav">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <nav class="main-menu">
-                                <ul>
-                                    <li class="active"><a href="#">Home</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="nav-logo">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="logo">
-                                <a href="#">RealEasy</a>
-                            </div>
-                        </div>
-                    </div>
+        <header>
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+                <div class="container d-flex justify-content-between">
+                    <a href="#" class="navbar-brand d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        <strong>RealEasy</strong>
+                    </a>
                 </div>
             </div>
         </header>
         <!-- Header End -->
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg">
-                    @yield('content')
+        <main role="main">
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </body>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
