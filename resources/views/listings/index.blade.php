@@ -27,7 +27,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary ignore-button">Ignore</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary save-button">Save</button>
                 </div>
                 <small class="text-muted">Price: ${{ $listing->price }}</small>
             </div>
