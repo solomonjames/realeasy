@@ -38,7 +38,7 @@
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['neighborhoodName'] }}</li>
             </ul>
 
-            <div class="card-footer text-muted">Added {{ $listing->created_at->fromNow() }}</div>>
+            <div class="card-footer text-muted">Added {{ $listing->created_at->fromNow() }}</div>
         </div>
     </div>
 </div>
