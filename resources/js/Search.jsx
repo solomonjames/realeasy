@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
+function makeBoolFromString(value) {
+    return value === 'true';
+}
+
 function Search() {
     const urlParams = new URLSearchParams(window.location.search.slice(1));
     const [orderBy, setOrderBy] = useState(urlParams.get('orderBy') || 'price');
-    const [saved, setSaved] = useState(Boolean(urlParams.get('saved') || false).valueOf());
+    const [saved, setSaved] = useState(urlParams.get('saved'));
 
     const updateSaved = () => {
         setSaved(! saved);
@@ -25,7 +29,7 @@ function Search() {
 
             console.log('saved', saved);
             console.log('get saved', newUrlParams.get('saved'));
-            if (saved !== Boolean(newUrlParams.get('saved')).valueOf()) {
+            if (`${saved}` !== newUrlParams.get('saved')) {
                 newUrlParams.set('saved', saved);
             }
 
