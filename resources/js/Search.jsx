@@ -23,6 +23,8 @@ function Search() {
                 newUrlParams.set('orderBy', orderBy);
             }
 
+            console.log('saved', saved);
+            console.log('get saved', newUrlParams.get('saved'));
             if (saved !== newUrlParams.get('saved')) {
                 newUrlParams.set('saved', saved);
             }
