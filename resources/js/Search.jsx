@@ -4,7 +4,7 @@ function makeBoolFromString(value) {
     return value === 'true';
 }
 
-function search() {
+function Search() {
     const urlParams = new URLSearchParams(window.location.search.slice(1));
     const [orderBy, setOrderBy] = useState(urlParams.get('orderBy') || 'price');
     const [saved, setSaved] = useState(makeBoolFromString(urlParams.get('saved')));
@@ -53,4 +53,4 @@ function search() {
     );
 }
 
-export default search;
+export default Search;
