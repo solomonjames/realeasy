@@ -25,7 +25,7 @@ function Search() {
 
             console.log('saved', saved);
             console.log('get saved', newUrlParams.get('saved'));
-            if (saved !== newUrlParams.get('saved')) {
+            if (saved !== Boolean(newUrlParams.get('saved')).valueOf()) {
                 newUrlParams.set('saved', saved);
             }
 
