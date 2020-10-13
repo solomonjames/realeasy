@@ -34,7 +34,7 @@ function Search() {
                 location.search = newUrlParams.toString();
 
                 // window.history.pushState({}, '', location.href);
-                window.location.search = newUrlParams.toString();
+                // window.location.search = newUrlParams.toString();
             }
         };
 
