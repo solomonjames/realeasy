@@ -17,7 +17,8 @@
                 @endif
 
                 @if($listing->source === 'compass')
-                {{ implode(', ', $listing->sink['detailedInfo']['amenities']) }}
+                <p>Amenities: {{ implode(', ', $listing->sink['detailedInfo']['amenities']) }}</p>
+                <p>Outdoor: {{ implode(', ', $listing->sink['detailedInfo']['outdoorSpace']) }}</p>
                 @endif
             </p>
         </div>
@@ -49,7 +50,7 @@
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['size']['bedrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['size']['bathrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['location']['neighborhood'] ?? '' }}</li>
-                <li class="list-group-item"><strong>Listed:</strong> {{ carbon($listing->sink['listedDate'])->fromNow() }}</li>
+                <li class="list-group-item"><strong>Listed:</strong> {{ carbon($listing->sink['date']['listed'])->fromNow() }}</li>
                 @endif
             </ul>
 

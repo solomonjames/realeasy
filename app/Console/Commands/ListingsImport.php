@@ -8,7 +8,6 @@ use App\Realtors\Corcoran\CorcoranClient;
 use App\Realtors\RealtorClient;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 class ListingsImport extends Command
 {
@@ -52,8 +51,8 @@ class ListingsImport extends Command
         $newItems = $items->map(fn($item, $key) => $realtor->dataToModel($item));
 
         $savedItems = 0;
-        $newItems->each(static function ($item) use ($savedItems) {
-            if (Listing::address(Str::lower($item->address))->first()) {
+        $newItems->each(static function ($item) use (&$savedItems) {
+            if (Listing::address($item->address)->first()) {
                 return;
             }
 
