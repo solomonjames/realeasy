@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Search() {
     const urlParams = new URLSearchParams(window.location.search.slice(1));
+    const initialLoad = true;
 
     const [orderBy, setOrderBy] = useState(urlParams.get('orderBy') || 'price');
     const [saved, setSaved] = useState(Boolean(urlParams.get('saved') || true).valueOf());
@@ -15,7 +16,7 @@ function Search() {
     };
 
     useEffect(() => {
-        const updateQueryString = (orderBy, saved) => {
+        const updateQueryString = (orderBy, saved, initialLoad) => {
             const newUrlParams = new URLSearchParams(window.location.search.slice(1));
             const location = document.createElement('a');
             location.href = window.location.toString();
@@ -28,16 +29,17 @@ function Search() {
                 newUrlParams.set('saved', saved);
             }
 
-            if (urlParams.toString() !== newUrlParams.toString()) {
+            if (! initialLoad && urlParams.toString() !== newUrlParams.toString()) {
                 location.search = newUrlParams.toString();
 
-                console.log('pushState');
                 window.history.pushState({}, '', location.href);
+            } else {
+                initialLoad = false;
             }
         };
 
-        updateQueryString(orderBy, saved);
-    }, [orderBy, saved, urlParams]);
+        updateQueryString(orderBy, saved, initialLoad);
+    }, [orderBy, saved, urlParams, initialLoad]);
 
     return (
         <form className="form-inline filters-form">
