@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Search from './Search';
+import Search from './search';
 
 require('./bootstrap');
 
@@ -42,7 +42,7 @@ saveButtons.click(function () {
 
 ReactDOM.render(
     <React.StrictMode>
-        <Search />
+        <search />
     </React.StrictMode>,
     document.getElementById('searcher')
 );
