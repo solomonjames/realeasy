@@ -2,20 +2,7 @@
 
 @section('content')
 <div class="col-12">
-    <form class="form-inline filters-form" method="GET">
-        <label class="mr-sm-2" for="selectOrderBy">Order by</label>
-        <select id="selectOrderBy" name="orderBy" class="custom-select my-1 mr-sm-2">
-            <option value="price" {{ $orderBy === 'price' ? 'selected' : '' }}>Price</option>
-            <option value="created_at" {{ $orderBy === 'created_at' ? 'selected' : '' }}>Date added</option>
-        </select>
-
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="saved" value="saved" />
-            <label class="form-check-label" for="saved">Saved</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary my-1">Apply</button>
-    </form>
+    <div id="searcher"></div>
 </div>
 @foreach($listings as $listing)
 <div class="col-md-4" id="listing-{{ $listing->id }}">

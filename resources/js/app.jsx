@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Search from './Search';
+
 require('./bootstrap');
 
 const ignoreButtons = $('.ignore-button');
@@ -36,12 +40,9 @@ saveButtons.click(function () {
     });
 });
 
-const filtersForm = $('.filters-form');
-
-filtersForm.on('submit', function (e) {
-    e.preventDefault();
-
-    const $this = $(this);
-
-    window.location.search = $this.serialize();
-});
+ReactDOM.render(
+    <React.StrictMode>
+        <Search />
+    </React.StrictMode>,
+    document.getElementById('searcher')
+);
