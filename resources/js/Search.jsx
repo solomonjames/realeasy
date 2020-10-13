@@ -6,7 +6,7 @@ function Search() {
     const [saved, setSaved] = useState(Boolean(urlParams.get('saved') || false).valueOf());
 
     const updateSaved = () => {
-        setSaved(saved === 1 ? 0 : 1);
+        setSaved(! saved);
     };
 
     const updateOrderBy = (event) => {
