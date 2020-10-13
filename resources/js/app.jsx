@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Search from './search';
+import search from './search';
 
 require('./bootstrap');
 
