@@ -16,7 +16,7 @@ function Search() {
     };
 
     useEffect(() => {
-        const updateQueryString = (orderBy, saved, initialLoad) => {
+        const updateQueryString = (orderBy, saved, urlParams) => {
             const newUrlParams = new URLSearchParams(window.location.search.slice(1));
             const location = document.createElement('a');
             location.href = window.location.toString();
@@ -33,13 +33,11 @@ function Search() {
                 location.search = newUrlParams.toString();
 
                 window.history.pushState({}, '', location.href);
-            } else {
-                initialLoad = false;
             }
         };
 
-        updateQueryString(orderBy, saved, initialLoad);
-    }, [orderBy, saved, urlParams, initialLoad]);
+        updateQueryString(orderBy, saved, urlParams);
+    }, [orderBy, saved, urlParams]);
 
     return (
         <form className="form-inline filters-form">
