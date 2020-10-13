@@ -32,7 +32,8 @@ function Search() {
             if (! initialLoad && urlParams.toString() !== newUrlParams.toString()) {
                 location.search = newUrlParams.toString();
 
-                window.history.pushState({}, '', location.href);
+                // window.history.pushState({}, '', location.href);
+                window.location = location;
             }
         };
 
