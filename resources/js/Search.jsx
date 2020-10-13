@@ -20,26 +20,16 @@ function Search() {
     useEffect(() => {
         const updateQueryString = (orderBy, saved, urlParams) => {
             const newUrlParams = new URLSearchParams(window.location.search.slice(1));
-            const location = document.createElement('a');
-            location.href = window.location.toString();
 
             if (orderBy !== newUrlParams.get('orderBy')) {
                 newUrlParams.set('orderBy', orderBy);
             }
 
-            console.log('saved', saved);
-            console.log('get saved', newUrlParams.get('saved'));
             if (`${saved}` !== newUrlParams.get('saved')) {
                 newUrlParams.set('saved', saved);
             }
 
-            console.log("newUrlParams", newUrlParams.toString());
-            console.log("urlParams", urlParams.toString());
-
             if (urlParams.toString() !== newUrlParams.toString()) {
-                location.search = newUrlParams.toString();
-
-                // window.history.pushState({}, '', location.href);
                 window.location.search = newUrlParams.toString();
             }
         };
