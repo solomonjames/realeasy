@@ -25,7 +25,7 @@ class ListingIndex extends FormRequest
     {
         return [
             'orderBy' => 'in:price,created_at',
-            'saved' => 'boolean',
+            'saved' => 'in:true,false',
         ];
     }
 }
