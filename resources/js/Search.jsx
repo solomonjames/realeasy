@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 function Search() {
     const urlParams = new URLSearchParams(window.location.search.slice(1));
     const [orderBy, setOrderBy] = useState(urlParams.get('orderBy') || 'price');
-    const [saved, setSaved] = useState(Boolean(urlParams.get('saved') || true).valueOf());
+    const [saved, setSaved] = useState(Boolean(urlParams.get('saved') || 1).valueOf());
 
     const updateSaved = () => {
-        setSaved(! saved);
+        setSaved(saved === 1 ? 0 : 1);
     };
 
     const updateOrderBy = (event) => {
@@ -34,7 +34,7 @@ function Search() {
                 location.search = newUrlParams.toString();
 
                 // window.history.pushState({}, '', location.href);
-                // window.location = location;
+                window.location = location;
             }
         };
 
