@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\Listing;
+use App\Realtors\Compass\CompassClient;
 use App\Realtors\Corcoran\CorcoranClient;
+use App\Realtors\RealtorClient;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
@@ -30,11 +32,23 @@ class ListingsImport extends Command
      */
     public function handle()
     {
-        $corcoran = app(CorcoranClient::class);
+        $realtors = [
+            app(CorcoranClient::class),
+            app(CompassClient::class),
+        ];
 
-        $items = $corcoran->listings();
+        foreach ($realtors as $realtor) {
+            $this->handleRealtor($realtor);
+        }
 
-        $newItems = $items->map(fn($item, $key) => $corcoran->dataToModel($item));
+        return 0;
+    }
+
+    public function handleRealtor(RealtorClient $realtor)
+    {
+        $items = $realtor->listings();
+
+        $newItems = $items->map(fn($item, $key) => $realtor->dataToModel($item));
 
         $savedItems = 0;
         $newItems->each(static function ($item) use ($savedItems) {
@@ -46,8 +60,6 @@ class ListingsImport extends Command
             $savedItems++;
         });
 
-        Log::info(sprintf('Import finished with %s new items.', $savedItems));
-
-        return 0;
+        Log::info(sprintf('Import(%s) finished with %s new items.', get_class($realtor), $savedItems));
     }
 }

@@ -46,6 +46,9 @@ class Listing extends Model
             case 'corcoran':
                 return sprintf('https://www.corcoran.com/nyc-real-estate/for-rent/fake/fake/%s', $this->sink['listingId']);
 
+            case 'compass':
+                return sprintf('https://www.compass.com%s', $this->sink['canonicalPageLink']);
+
             default:
                 return '';
         }

@@ -15,6 +15,10 @@
                 @if($listing->source === 'corcoran')
                 {!! $listing->sink['highlightedText'] !!}
                 @endif
+
+                @if($listing->source === 'compass')
+                {{ implode(', ', $listing->sink['detailedInfo']['amenities']) }}
+                @endif
             </p>
         </div>
 
@@ -34,10 +38,19 @@
 
         <div class="card-body">
             <ul class="list-group list-group-flush">
+                @if($listing->source === 'corcoran')
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['bathrooms'] }}</li>
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['neighborhoodName'] }}</li>
                 <li class="list-group-item"><strong>Listed:</strong> {{ carbon($listing->sink['listedDate'])->fromNow() }}</li>
+                @endif
+
+                @if($listing->source === 'compass')
+                <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['size']['bedrooms'] ?? '' }}</li>
+                <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['size']['bathrooms'] ?? '' }}</li>
+                <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['location']['neighborhood'] ?? '' }}</li>
+                <li class="list-group-item"><strong>Listed:</strong> {{ carbon($listing->sink['listedDate'])->fromNow() }}</li>
+                @endif
             </ul>
 
             <div class="card-footer text-muted">Added {{ $listing->created_at->fromNow() }}</div>

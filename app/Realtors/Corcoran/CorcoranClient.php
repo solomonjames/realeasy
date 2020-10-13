@@ -3,21 +3,24 @@
 namespace App\Realtors\Corcoran;
 
 use App\Models\Listing;
+use App\Realtors\RealtorClient;
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
-class CorcoranClient
+class CorcoranClient implements RealtorClient
 {
     /**
      * @var \Illuminate\Http\Client\PendingRequest
      */
-    private $client;
+    private PendingRequest $client;
 
     public function __construct()
     {
         $this->client = Http::withOptions(['base_uri' => 'https://legacy.corcoran.com/api/']);
     }
 
-    public function listings()
+    public function listings(): Collection
     {
         $params = [
             'page' => 1,
