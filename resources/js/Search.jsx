@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function Search() {
     const urlParams = new URLSearchParams(window.location.search.slice(1));
-    const initialLoad = true;
-
     const [orderBy, setOrderBy] = useState(urlParams.get('orderBy') || 'price');
     const [saved, setSaved] = useState(Boolean(urlParams.get('saved') || true).valueOf());
 
@@ -29,10 +27,12 @@ function Search() {
                 newUrlParams.set('saved', saved);
             }
 
+            console.log("newUrlParams", newUrlParams.toString());
+            console.log("urlParams", urlParams.toString());
+
             if (urlParams.toString() !== newUrlParams.toString()) {
                 location.search = newUrlParams.toString();
 
-                console.log(location.toString());
                 // window.history.pushState({}, '', location.href);
                 // window.location = location;
             }
