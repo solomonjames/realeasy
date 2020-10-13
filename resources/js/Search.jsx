@@ -29,7 +29,7 @@ function Search() {
                 newUrlParams.set('saved', saved);
             }
 
-            if (! initialLoad && urlParams.toString() !== newUrlParams.toString()) {
+            if (urlParams.toString() !== newUrlParams.toString()) {
                 location.search = newUrlParams.toString();
 
                 // window.history.pushState({}, '', location.href);
