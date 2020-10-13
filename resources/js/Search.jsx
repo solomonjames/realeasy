@@ -31,8 +31,8 @@ function Search() {
             if (urlParams.toString() !== newUrlParams.toString()) {
                 location.search = newUrlParams.toString();
 
-                window.location = location;
-                // window.history.pushState({}, '', location.href);
+                window.history.pushState({}, '', location.href);
+                window.history.go();
             }
         };
 
