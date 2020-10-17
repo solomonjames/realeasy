@@ -53,7 +53,7 @@ class CompassClient implements RealtorClient
 
         $m->address = sprintf('%s, Brooklyn, NY %s', $location['prettyAddress'], $location['zipCode']);
         $m->source = 'compass';
-        $m->price = $price['listed'];
+        $m->price = $price['listed'] ?? 0;
         $m->media = collect($data['media'] ?? [])->map(fn($item) => $item['originalUrl']);
         $m->sink = $data;
 
