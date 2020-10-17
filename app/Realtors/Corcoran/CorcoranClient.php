@@ -42,7 +42,7 @@ class CorcoranClient implements RealtorClient
             'address' => [],
             'agentNames' => [],
             'dateTimeOffset' => '-4:0:00',
-            'keywordSearch' => 'pet-friendly,dishwasher,private-outdoor-space',
+            'keywordSearch' => 'dishwasher,private-outdoor-space',
             'openHouseDays' => [],
             'zipcodes' => [],
             'citiesOrBoroughs' => [],
