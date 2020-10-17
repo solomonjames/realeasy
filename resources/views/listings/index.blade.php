@@ -50,7 +50,7 @@
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['size']['bedrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['size']['bathrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['location']['neighborhood'] ?? '' }}</li>
-                <li class="list-group-item"><strong>Listed:</strong> {{ $listing->sink['date']['daysOnMarket'] }} days ago</li>
+                <li class="list-group-item"><strong>Listed:</strong> {{ $listing->sink['date']['daysOnMarket'] ?? 'unknown' }} days ago</li>
                 @endif
             </ul>
 
