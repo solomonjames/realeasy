@@ -29,7 +29,7 @@ class CompassClient implements RealtorClient
         ];
 
         $response = $this->client->asJson()->post(
-            'for-rent/cobble-hill-brooklyn-ny/price.max=7k/has-outdoor/locations=21455,21489,21532,21447,21452,21555,21556/',
+            'for-rent/cobble-hill-brooklyn-ny/price.max=6k/has-outdoor/locations=21455,21489,21532,21447,21452,21555,21556/',
             $params
         );
 

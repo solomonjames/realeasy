@@ -47,7 +47,7 @@ class CorcoranClient implements RealtorClient
             'zipcodes' => [],
             'citiesOrBoroughs' => [],
             'advertiseNoFee' => null,
-            'priceMax' => 6500,
+            'priceMax' => 5500,
         ];
 
         $response = $this->client->post('search/listings', $params);
