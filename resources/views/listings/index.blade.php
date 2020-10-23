@@ -8,6 +8,14 @@
 <div class="col-md-4" id="listing-{{ $listing->id }}">
     <div class="card mb-4 shadow-sm">
         <a href="{{ $listing->link }}" target="_blank"><img class="card-img-top" src="{{ $listing->media->first() }}" /></a>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
+            </div>
+        </div>
+
         <div class="card-body">
             <h5 class="card-title">{{ $listing->address_street }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${{ $listing->price }}</h6>
@@ -29,17 +37,15 @@
 
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
-                </div>
                 <small class="text-muted">{{ $listing->source }}</small>
             </div>
         </div>
 
         <div class="card-body">
             <ul class="list-group list-group-flush">
+                @if($listing->listed_on)
                 <li class="list-group-item"><strong>Listed:</strong> {{ $listing->listed_on->fromNow() }} on {{ $listing->listed_on }}</li>
+                @endif
                 @if($listing->source === 'corcoran')
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['bathrooms'] ?? '' }}</li>
