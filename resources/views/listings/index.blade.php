@@ -15,7 +15,7 @@
                     <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
                 </div>
-                <small class="text-muted">{{ $listing->source }}</small>
+                <small class="text-muted"><a href="{{ $listing->link }}" target="_blank">{{ $listing->source }}</a></small>
             </div>
         </div>
 
