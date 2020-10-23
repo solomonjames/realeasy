@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
  * @property array          $sink
  * @property bool           $ignore
  * @property bool           $saved
+ * @property \Carbon\Carbon $listed_on
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
@@ -33,6 +34,7 @@ class Listing extends Model
      * @var array
      */
     protected $casts = [
+        'listed_on' => 'date',
         'price' => 'integer',
         'ignore' => 'boolean',
         'saved' => 'boolean',
@@ -74,7 +76,7 @@ class Listing extends Model
     }
 
     /**
-     * Scope a query to only include popular users.
+     * Scope a query to get only non-ignored listings
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -85,7 +87,7 @@ class Listing extends Model
     }
 
     /**
-     * Scope a query to only include popular users.
+     * Scope a query to only include saved listings
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -96,7 +98,7 @@ class Listing extends Model
     }
 
     /**
-     * Scope a query to only include popular users.
+     * Scope a query to find by address
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string                                $address

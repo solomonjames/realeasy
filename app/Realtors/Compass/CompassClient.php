@@ -4,6 +4,7 @@ namespace App\Realtors\Compass;
 
 use App\Models\Listing;
 use App\Realtors\RealtorClient;
+use Carbon\Carbon;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -48,12 +49,14 @@ class CompassClient implements RealtorClient
     {
         $location = $data['location'];
         $price = $data['price'];
+        $date = $data['date'];
 
         $m = new Listing;
 
         $m->address = sprintf('%s, Brooklyn, NY %s', $location['prettyAddress'], $location['zipCode']);
         $m->source = 'compass';
         $m->price = $price['listed'] ?? 0;
+        $m->listed_on = $date['listed'] ? Carbon::createFromTimestamp($date['listed']) : null;
         $m->media = collect($data['media'] ?? [])->map(fn($item) => $item['originalUrl']);
         $m->sink = $data;
 

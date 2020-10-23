@@ -39,18 +39,17 @@
 
         <div class="card-body">
             <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Listed On:</strong> {{ $listing->listed_on ?? '' }}</li>
                 @if($listing->source === 'corcoran')
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['bathrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['neighborhoodName'] ?? '' }}</li>
-                <li class="list-group-item"><strong>Listed:</strong> {{ carbon($listing->sink['listedDate'])->fromNow() }}</li>
                 @endif
 
                 @if($listing->source === 'compass')
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['size']['bedrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Bathrooms:</strong> {{ $listing->sink['size']['bathrooms'] ?? '' }}</li>
                 <li class="list-group-item"><strong>Neighborhood:</strong> {{ $listing->sink['location']['neighborhood'] ?? '' }}</li>
-                <li class="list-group-item"><strong>Listed:</strong> {{ $listing->sink['date']['daysOnMarket'] ?? 'unknown' }} days ago</li>
                 @endif
             </ul>
 

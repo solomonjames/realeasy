@@ -4,6 +4,7 @@ namespace App\Realtors\Corcoran;
 
 use App\Models\Listing;
 use App\Realtors\RealtorClient;
+use Carbon\Carbon;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -68,6 +69,7 @@ class CorcoranClient implements RealtorClient
         $m->address = sprintf('%s, %s, Brooklyn, NY %s', $data['address1'], $data['address2'] ?? '', $data['zipCode']);
         $m->source = 'corcoran';
         $m->price = $data['price'];
+        $m->listed_on = $data['listedDate'] ? Carbon::parse($data['listedDate']) : null;
         $m->media = collect($data['media'] ?? [])->pluck('url')->all();
         $m->sink = $data;
 

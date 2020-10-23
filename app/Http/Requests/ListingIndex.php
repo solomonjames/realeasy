@@ -24,7 +24,7 @@ class ListingIndex extends FormRequest
     public function rules()
     {
         return [
-            'orderBy' => 'in:price,created_at',
+            'orderBy' => 'in:price,created_at,listed_on',
             'saved' => 'in:true,false',
         ];
     }

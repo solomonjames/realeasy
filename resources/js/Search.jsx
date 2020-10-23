@@ -42,6 +42,7 @@ function Search() {
             <label className="mr-sm-2" htmlFor="selectOrderBy">Order by</label>
             <select id="selectOrderBy" value={orderBy} onChange={updateOrderBy} className="custom-select my-1 mr-sm-2">
                 <option value="price">Price</option>
+                <option value="listed_on">Listed On</option>
                 <option value="created_at">Date added</option>
             </select>
 

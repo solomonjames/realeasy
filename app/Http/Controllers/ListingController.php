@@ -15,7 +15,7 @@ class ListingController extends Controller
         $saved = $filters['saved'] ?? false;
 
         $listings = Listing::withoutIgnored()
-            ->where('saved', $saved)
+            ->saved($saved)
             ->orderBy($orderBy, 'DESC')
             ->get();
 
