@@ -9,12 +9,14 @@
     <div class="card mb-4 shadow-sm">
         <a href="{{ $listing->link }}" target="_blank"><img class="card-img-top" src="{{ $listing->media->first() }}" /></a>
 
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
+                </div>
+                <small class="text-muted">{{ $listing->source }}</small>
             </div>
-            <small class="text-muted">{{ $listing->source }}</small>
         </div>
 
         <div class="card-body">
