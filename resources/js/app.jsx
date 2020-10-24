@@ -13,11 +13,11 @@ ReactDOM.render(
 );
 
 const listingActions = document.getElementsByClassName('listing_actions');
-for (let i in listingActions) {
+for (let i = 0; i < listingActions.length; i++) {
     ReactDOM.render(
         <React.StrictMode>
             <ListingActions />
         </React.StrictMode>,
-        listingActions[i]
+        listingActions.item(i)
     );
 }
