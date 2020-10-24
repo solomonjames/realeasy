@@ -12,7 +12,9 @@ class ListingController extends Controller
     {
         $filters = $request->validated();
         $orderBy = $filters['orderBy'] ?? 'price';
-        $saved = $filters['saved'] ?? false;
+        $saved = $filters['saved'] ?? 'false';
+
+        $saved = $saved === 'true';
 
         $listings = Listing::withoutIgnored()
             ->saved($saved)
