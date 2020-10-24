@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import listingsApi from "./lib/listings";
 
-function ListingActions() {
-    const makeIgnored = () => {
-        const parent = $(this).parents('.col-md-4');
-        const listingId = parent.attr('id').replace('listing-', '');
+function ListingActions(props) {
+    console.log(props.listingId);
 
-        listingsApi.ignore(listingId)
+    const removeCard = () => document.getElementById(`listing-${props.listingId}`).remove();
+
+    const makeIgnored = () => {
+        listingsApi.ignore(props.listingId)
             .then(function (response) {
                 if (response.status !== 200) {
                     return alert('Shit, something went wrong');
                 }
 
-                parent.remove();
+                removeCard();
             });
     };
 
     const makeSaved = () => {
-        const parent = $(this).parents('.col-md-4');
-        const listingId = parent.attr('id').replace('listing-', '');
+        listingsApi.save(props.listingId)
+            .then(function (response) {
+                if (response.status !== 200) {
+                    return alert('Shit, something went wrong');
+                }
 
-        listingsApi.save(listingId).then(function (response) {
-            if (response.status !== 200) {
-                return alert('Shit, something went wrong');
-            }
-
-            parent.remove();
-        });
+                removeCard();
+            });
     };
 
     return (

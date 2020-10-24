@@ -16,7 +16,7 @@ const listingActions = document.getElementsByClassName('listing_actions');
 for (let i = 0; i < listingActions.length; i++) {
     ReactDOM.render(
         <React.StrictMode>
-            <ListingActions />
+            <ListingActions listingId={listingActions.item(i).getAttribute('x-listing-id')} />
         </React.StrictMode>,
         listingActions.item(i)
     );
