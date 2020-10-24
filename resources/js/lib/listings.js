@@ -1,7 +1,9 @@
+import axios from 'axios';
+
 const exports = {};
 
 function updateListing(listingId, data) {
-    return window.axios.patch(`/listing/${listingId}`, data);
+    return axios.patch(`/listing/${listingId}`, data);
 }
 
 exports.ignore = function (listingId) {

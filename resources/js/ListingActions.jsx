@@ -2,8 +2,6 @@ import React from 'react';
 import listingsApi from "./lib/listings";
 
 function ListingActions(props) {
-    console.log(props.listingId);
-
     const removeCard = () => document.getElementById(`listing-${props.listingId}`).remove();
 
     const makeIgnored = () => {
