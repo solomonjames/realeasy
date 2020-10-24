@@ -36,12 +36,6 @@
         </div>
 
         <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">{{ $listing->source }}</small>
-            </div>
-        </div>
-
-        <div class="card-body">
             <ul class="list-group list-group-flush">
                 @if($listing->listed_on)
                 <li class="list-group-item"><strong>Listed:</strong> {{ $listing->listed_on->fromNow() }} on {{ $listing->listed_on }}</li>
