@@ -38,7 +38,7 @@
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 @if($listing->listed_on)
-                <li class="list-group-item"><strong>Listed:</strong> {{ $listing->listed_on->fromNow() }} on {{ $listing->listed_on }}</li>
+                <li class="list-group-item"><strong>Listed:</strong> {{ $listing->listed_on->fromNow() }} on {{ $listing->listed_on->format('m-d-Y') }}</li>
                 @endif
                 @if($listing->source === 'corcoran')
                 <li class="list-group-item"><strong>Bedrooms:</strong> {{ $listing->sink['bedrooms'] ?? '' }}</li>
