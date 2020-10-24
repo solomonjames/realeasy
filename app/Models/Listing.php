@@ -89,12 +89,14 @@ class Listing extends Model
     /**
      * Scope a query to only include saved listings
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param bool                                  $saved
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSaved(Builder $query): Builder
+    public function scopeSaved(Builder $query, bool $saved): Builder
     {
-        return $query->where('saved', true);
+        return $query->where('saved', $saved);
     }
 
     /**

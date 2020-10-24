@@ -1,5 +1,5 @@
 import React from 'react';
-import listingsApi from "./lib/listings";
+import listingsApi from './lib/listings';
 
 function ListingActions(props) {
     const removeCard = () => document.getElementById(`listing-${props.listingId}`).remove();
