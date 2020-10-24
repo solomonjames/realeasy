@@ -69,7 +69,7 @@ class CorcoranClient implements RealtorClient
         $m->address = sprintf('%s, %s, Brooklyn, NY %s', $data['address1'], $data['address2'] ?? '', $data['zipCode']);
         $m->source = 'corcoran';
         $m->price = $data['price'];
-        $m->listed_on = $data['listedDate'] !== null ? Carbon::parse($data['listedDate']) : null;
+        $m->listed_on = isset($data['listedDate']) ? Carbon::parse($data['listedDate']) : null;
         $m->media = collect($data['media'] ?? [])->pluck('url')->all();
         $m->sink = $data;
 

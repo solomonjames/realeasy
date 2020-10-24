@@ -56,7 +56,7 @@ class CompassClient implements RealtorClient
         $m->address = sprintf('%s, Brooklyn, NY %s', $location['prettyAddress'], $location['zipCode']);
         $m->source = 'compass';
         $m->price = $price['listed'] ?? 0;
-        $m->listed_on = $date['listed'] !== null ? Carbon::createFromTimestamp($date['listed']) : null;
+        $m->listed_on = isset($date['listed']) ? Carbon::createFromTimestamp($date['listed']) : null;
         $m->media = collect($data['media'] ?? [])->map(fn($item) => $item['originalUrl']);
         $m->sink = $data;
 
