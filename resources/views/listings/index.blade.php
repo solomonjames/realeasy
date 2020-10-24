@@ -11,10 +11,7 @@
 
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary ignore-button bg-danger text-white">Ignore</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary save-button bg-primary text-white">Save</button>
-                </div>
+                <div class="listing_actions" x-listing-id="{{ $listing->id }}"></div>
                 <small class="text-muted"><a href="{{ $listing->link }}" target="_blank">{{ $listing->source }}</a></small>
             </div>
         </div>
